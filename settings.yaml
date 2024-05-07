@@ -1,0 +1,64 @@
+# The default configuration file.
+# More information about configuration can be found in the documentation: https://github.com/ptonlix/LangChain-SearXNG
+# Syntax in `langchain_emoji/settings/settings.py`
+server:
+  env_name: ${APP_ENV:prod}
+  port: ${PORT:8003}
+  cors:
+    enabled: false
+    allow_origins: ["*"]
+    allow_methods: ["*"]
+    allow_headers: ["*"]
+  auth:
+    enabled: false
+    # python -c 'import base64; print("Basic " + base64.b64encode("secret:key".encode()).decode())'
+    # 'secret' is the username and 'key' is the password for basic auth by default
+    # If the auth is enabled, this value must be set in the "Authorization" header of the request.
+    secret: "Basic c2VjcmV0OmtleQ=="
+
+llm:
+  mode: openai+zhipuai
+
+embedding:
+  mode: zhipuai
+
+openai:
+  temperature: 1
+  modelname: "gpt-3.5-turbo-0125" #"gpt-3.5-turbo-1106"
+  api_base: ${OPENAI_API_BASE:}
+  api_key: ${OPENAI_API_KEY:}
+
+zhipuai:
+  temperature: 0.95
+  top_p: 0.6
+  modelname: "glm-3-turbo"
+  api_key: ${ZHIPUAI_API_KEY:}
+
+langsmith:
+  trace_version_v2: true
+  langchain_project: langchain-emoji
+  api_key: ${LANGCHAIN_API_KEY:}
+
+vectorstore:
+  database: tcvectordb
+  tcvectordb:
+    url: ${TCVERCTORDB_API_HOST:}
+    username: root
+    api_key: ${TCVERCTORDB_API_KEY:}
+    collection_name: EmojiCollection #测试环境 #EmojiCollectionPro #生产环境
+    database_name: DeepReadDatabase
+
+dataset:
+  name: emo-visual-data
+  google_driver_id: 1r3uO0wvgQ791M_6iIyBODo_8GekBjPMf
+  mode: local
+
+data:
+  local_data_folder: local_data
+
+minio:
+  host: ${MINIO_HOST:}
+  share_host: ${MINIO_SHARE_HOST:}
+  bucket_name: emoji
+  access_key: ${MINIO_ACCESS_KEY:}
+  secret_key: ${MINIO_SECRET_KEY:}
