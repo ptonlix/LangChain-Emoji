@@ -190,11 +190,12 @@ python -m langchain_emoji
 
 - [x] 搭建 LangChain-Emoji 初步框架，完善基本功能
 - [ ] 支持本地向量数据库,如 faiss
+- [ ] 搭建前端 Web Demo
+  - [ ] 选择 LLM
 - [ ] 支持更多模型
   - [ ] 在线大模型
   - [ ] 本地大模型
-- [ ] 搭建前端 Web Demo
-  - [ ] 选择 LLM
+- [ ] 接入微信客户端，开启斗图模式
 
 ## 🌏 项目交流讨论
 
