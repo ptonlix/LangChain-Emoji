@@ -150,3 +150,5 @@ wandb/
 
 local_data/emo-visual-data.zip
 local_data/emo-visual-data
+
+settings-pro.yaml

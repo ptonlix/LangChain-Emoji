@@ -125,7 +125,6 @@ class DataSettings(BaseModel):
 
 class MinioSettings(BaseModel):
     host: str
-    share_host: str
     bucket_name: str
     access_key: str
     secret_key: str

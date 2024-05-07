@@ -58,7 +58,6 @@ data:
 
 minio:
   host: ${MINIO_HOST:}
-  share_host: ${MINIO_SHARE_HOST:}
   bucket_name: emoji
   access_key: ${MINIO_ACCESS_KEY:}
   secret_key: ${MINIO_SECRET_KEY:}
