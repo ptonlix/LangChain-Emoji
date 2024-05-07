@@ -1,4 +1,4 @@
-# 🔍 LangChain-Emoji
+# 🥳 LangChain-Emoji
 
 简体中文 | [English](README-en.md)
 
