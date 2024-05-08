@@ -76,7 +76,7 @@ class ServerSettings(BaseModel):
 
 
 class LLMSettings(BaseModel):
-    mode: Literal["local", "openai", "zhipuai", "openai+zhipuai", "mock"]
+    mode: Literal["local", "openai", "zhipuai", "deepseek", "all", "mock"]
     max_new_tokens: int = Field(
         256,
         description="The maximum number of token that the LLM is authorized to generate in one completion.",
@@ -84,6 +84,13 @@ class LLMSettings(BaseModel):
 
 
 class OpenAISettings(BaseModel):
+    temperature: float
+    modelname: str
+    api_key: str
+    api_base: str
+
+
+class DeepSeekSettings(BaseModel):
     temperature: float
     modelname: str
     api_key: str
@@ -150,6 +157,7 @@ class Settings(BaseModel):
     server: ServerSettings
     llm: LLMSettings
     openai: OpenAISettings
+    deepseek: DeepSeekSettings
     zhipuai: ZhipuAISettings
     langsmith: LangSmithSettings
     vectorstore: VectorstoreSettings

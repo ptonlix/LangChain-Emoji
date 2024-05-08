@@ -49,9 +49,23 @@ class LLMComponent:
                     ConfigurableField(id="llm"),
                     default_key="zhipuai",
                 )
-            case "openai+zhipuai":
+            case "deepseek":
+                deepseek_settings = settings.deepseek
+                self._llm = ChatOpenAI(
+                    model=deepseek_settings.modelname,
+                    temperature=deepseek_settings.temperature,
+                    api_key=deepseek_settings.api_key,
+                    openai_api_base=deepseek_settings.api_base,
+                ).configurable_alternatives(
+                    # This gives this field an id
+                    # When configuring the end runnable, we can then use this id to configure this field
+                    ConfigurableField(id="llm"),
+                    default_key="deepseek",
+                )
+            case "all":
                 openai_settings = settings.openai
                 zhipuai_settings = settings.zhipuai
+                deepseek_settings = settings.deepseek
                 self._llm = ChatOpenAI(
                     temperature=openai_settings.temperature,
                     model_name=openai_settings.modelname,
@@ -68,6 +82,12 @@ class LLMComponent:
                         temperature=zhipuai_settings.temperature,
                         top_p=zhipuai_settings.top_p,
                         api_key=zhipuai_settings.api_key,
+                    ),
+                    deepseek=ChatOpenAI(
+                        model=deepseek_settings.modelname,
+                        temperature=deepseek_settings.temperature,
+                        api_key=deepseek_settings.api_key,
+                        openai_api_base=deepseek_settings.api_base,
                     ),
                 )
 

@@ -70,14 +70,11 @@ class TokenInfo(BaseModel):
 class EmojiRequest(BaseModel):
     prompt: str
     req_id: str
-    vectordb: str = Field(default="tcvectordb", description="向量数据库")
     llm: str = Field(default="openai", description="大模型")
 
     model_config = {
         "json_schema_extra": {
-            "examples": [
-                {"prompt": "xxxx", "req_id": "xxxx", "vectordb": "xxx", "llm": "xxx"}
-            ]
+            "examples": [{"prompt": "xxxx", "req_id": "xxxx", "llm": "xxx"}]
         }
     }
 
@@ -219,7 +216,7 @@ class EmojiService:
                     "metadata": {
                         "req_id": body.req_id,
                     },
-                    "configurable": {"vectordb": body.vectordb, "llm": body.llm},
+                    "configurable": {"llm": body.llm},
                     "callbacks": [cb, read_runid],
                 },
             )
@@ -308,9 +305,11 @@ class EmojiService:
         )
         _prompt = RunnableBranch(
             (
-                RunnableLambda(lambda x: bool(x.get("llm") == "openai")).with_config(
-                    run_name="CheckLLM"
-                ),
+                RunnableLambda(
+                    lambda x: bool(
+                        x.get("llm") == "openai" or x.get("llm") == "deepseek"
+                    )
+                ).with_config(run_name="CheckLLM"),
                 ChatPromptTemplate.from_messages(
                     [
                         ("human", RESPONSE_TEMPLATE),

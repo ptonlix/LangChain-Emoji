@@ -28,6 +28,12 @@ openai:
   api_base: ${OPENAI_API_BASE:}
   api_key: ${OPENAI_API_KEY:}
 
+deepseek:
+  temperature: 1
+  modelname: "deepseek-chat"
+  api_base: ${DEEPSEEK_API_BASE:}
+  api_key: ${DEEPSEEK_API_KEY:}
+
 zhipuai:
   temperature: 0.95
   top_p: 0.6
