@@ -111,9 +111,19 @@ class TvectordbSettings(BaseModel):
     database_name: str
 
 
+class EmbeddingSettings(BaseModel):
+    mode: Literal["local", "openai", "zhipuai", "mock"]
+
+
+class ChromadbSettings(BaseModel):
+    persist_dir: str
+    collection_name: str
+
+
 class VectorstoreSettings(BaseModel):
-    database: Literal["tcvectordb"]
+    database: Literal["tcvectordb", "chromadb"]
     tcvectordb: TvectordbSettings
+    chromadb: ChromadbSettings
 
 
 class DataSettings(BaseModel):
@@ -143,6 +153,7 @@ class Settings(BaseModel):
     zhipuai: ZhipuAISettings
     langsmith: LangSmithSettings
     vectorstore: VectorstoreSettings
+    embedding: EmbeddingSettings
     data: DataSettings
     minio: Optional[MinioSettings] = None
     dataset: DatasetSettings

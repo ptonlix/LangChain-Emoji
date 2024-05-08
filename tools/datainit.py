@@ -9,7 +9,6 @@ import hashlib
 from minio import Minio
 from minio.error import MinioException
 from langchain_core.vectorstores import VectorStore
-from langchain_emoji.components.vector_store.tencent.tencent import EmojiTencentVectorDB
 
 import concurrent.futures
 import threading
@@ -18,6 +17,7 @@ from queue import Queue
 
 import logging
 
+logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -283,7 +283,7 @@ def upload_file_vectordb(
         filename = data["filename"]
         content = data["content"]
 
-        if isinstance(client, EmojiTencentVectorDB):
+        if isinstance(client, VectorStore):
             metadata = {
                 "filename": filename,
             }
@@ -439,8 +439,12 @@ if __name__ == "__main__":
         from langchain_emoji.paths import local_data_path
         from langchain_emoji.settings.settings import settings
         from langchain_emoji.components.vector_store import VectorStoreComponent
+        from langchain_emoji.components.embedding.embedding_component import (
+            EmbeddingComponent,
+        )
 
-        vsc = VectorStoreComponent(settings())
+        embed = EmbeddingComponent(settings())
+        vsc = VectorStoreComponent(embed, settings())
 
         dataset_name = settings().dataset.name
         dataset_file = local_data_path / dataset_name / "data.jsonl"

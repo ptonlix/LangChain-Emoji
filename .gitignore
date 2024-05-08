@@ -150,5 +150,6 @@ wandb/
 
 local_data/emo-visual-data.zip
 local_data/emo-visual-data
+local_data/chromadb
 
 settings-pro.yaml

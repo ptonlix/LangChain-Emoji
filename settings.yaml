@@ -40,13 +40,16 @@ langsmith:
   api_key: ${LANGCHAIN_API_KEY:}
 
 vectorstore:
-  database: tcvectordb
+  database: chromadb
   tcvectordb:
     url: ${TCVERCTORDB_API_HOST:}
     username: root
     api_key: ${TCVERCTORDB_API_KEY:}
-    collection_name: EmojiCollection #测试环境 #EmojiCollectionPro #生产环境
+    collection_name: EmojiCollection
     database_name: DeepReadDatabase
+  chromadb:
+    persist_dir: local_data
+    collection_name: EmojiCollection
 
 dataset:
   name: emo-visual-data

@@ -83,7 +83,10 @@ ZHIPUAI_API_KEY
 # LangChain调试 API
 LANGCHAIN_API_KEY
 
-# 腾讯云向量数据库配置
+# 向量数据库，默认采用chromadb
+embedding #配置向量模型，默认为zhipuai
+
+# 腾讯云向量数据库配置(可选)
 TCVERCTORDB_API_HOST
 TCVERCTORDB_API_KEY
 
@@ -134,18 +137,21 @@ python datainit.py --upload
 # 等待数据上传到minio完成
 ```
 
-3. 同步元数据到向量数据库 (以腾讯云向量数据库为例)
-
-修改`settings.yaml`配置文件中 向量数据库 的配置，填写好  
-`TCVERCTORDB_API_HOST`  
-`TCVERCTORDB_API_HOST`  
-填写好这两个参数
+3. 同步元数据到向量数据库 (默认采用 ChromaDB)
 
 ```
 cd tools
 python datainit.py --vectordb
 # 等待数据上传到向量数据库完成
 ```
+
+**腾讯云向量数据库(可选)**
+
+> 修改`settings.yaml`配置文件中 向量数据库 的配置，填写好  
+> `TCVERCTORDB_API_HOST`  
+> `TCVERCTORDB_API_HOST`  
+> 填写好这两个参数  
+> `vectorstore` `database`选择 `tcvectordb`
 
 - 启动项目
 
@@ -189,7 +195,7 @@ python -m langchain_emoji
 ## 🚩 Roadmap
 
 - [x] 搭建 LangChain-Emoji 初步框架，完善基本功能
-- [ ] 支持本地向量数据库,如 faiss
+- [x] 支持本地向量数据库 Chroma
 - [ ] 搭建前端 Web Demo
   - [ ] 选择 LLM
 - [ ] 支持更多模型
