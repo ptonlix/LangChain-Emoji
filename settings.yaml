@@ -17,7 +17,7 @@ server:
     secret: "Basic c2VjcmV0OmtleQ=="
 
 llm:
-  mode: openai+zhipuai
+  mode: all
 
 embedding:
   mode: zhipuai

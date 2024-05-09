@@ -163,6 +163,19 @@ python -m langchain_emoji
 访问: http://localhost:8003/docs 获取 API 信息
 ```
 
+- 启动 Web Demo
+
+```shell
+# 进入前端目录
+cd frontend
+# 启动
+streamlit run emoji.py
+```
+
+## 💡 演示效果
+
+[![IMAGE ALT TEXT](./docs/pic/erl0r-slzsz.mp4)](./docs/pic/erl0r-slzsz.mp4)
+
 ## 📖 项目介绍
 
 ### 1. 目录结构
@@ -196,10 +209,10 @@ python -m langchain_emoji
 
 - [x] 搭建 LangChain-Emoji 初步框架，完善基本功能
 - [x] 支持本地向量数据库 Chroma
-- [ ] 搭建前端 Web Demo
-  - [ ] 选择 LLM
+- [x] 搭建前端 Web Demo
+  - [x] 选择 LLM
 - [ ] 支持更多模型
-  - [ ] 在线大模型
+  - [ ] 在线大模型: 深度求索 ⏳ 测试中
   - [ ] 本地大模型
 - [ ] 接入微信客户端，开启斗图模式
 
