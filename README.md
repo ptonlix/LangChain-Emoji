@@ -103,7 +103,7 @@ MINIO_SECRET_KEY
 
 主要借助于 `tools/datainit.py `数据初始化工具完成相关操作
 
-1. 采用数据本地文件部署
+I. 采用数据本地文件部署
 
 [➡️ 百度云盘下载](https://pan.baidu.com/s/11iwqoxLtjV-DOQli81vZ6Q?pwd=tab4)
 
@@ -121,7 +121,7 @@ python datainit.py --download
 # 等待数据包下载并解压完成
 ```
 
-2. 采用 Minio 云盘部署（可选）
+Ⅱ. 采用 Minio 云盘部署（可选）
 
 完成`步骤1`,将数据下载到 local_data 目录并解压完成
 
@@ -137,7 +137,7 @@ python datainit.py --upload
 # 等待数据上传到minio完成
 ```
 
-3. 同步元数据到向量数据库 (默认采用 ChromaDB)
+Ⅲ. 同步元数据到向量数据库 (默认采用 ChromaDB)
 
 ```
 cd tools
@@ -145,8 +145,7 @@ python datainit.py --vectordb
 # 等待数据上传到向量数据库完成
 ```
 
-**腾讯云向量数据库(可选)**
-
+> **腾讯云向量数据库(可选)**  
 > 修改`settings.yaml`配置文件中 向量数据库 的配置，填写好  
 > `TCVERCTORDB_API_HOST`  
 > `TCVERCTORDB_API_HOST`  
