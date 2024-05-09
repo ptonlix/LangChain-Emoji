@@ -174,7 +174,7 @@ streamlit run emoji.py
 
 ## 💡 演示效果
 
-[![IMAGE ALT TEXT](./docs/pic/erl0r-slzsz.mp4)](./docs/pic/erl0r-slzsz.mp4)
+[![IMAGE ALT TEXT](./docs/pic/example_video.gif)](./docs/pic/example_video.gif)
 
 ## 📖 项目介绍
 
