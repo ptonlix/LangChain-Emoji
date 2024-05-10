@@ -40,6 +40,6 @@ class EmbeddingComponent:
     @property
     def total_tokens(self) -> int:
         try:
-            return self._embedding.count_token
+            return self._embedding.count_token  # 目前只支持Zhipuai统计 embedding token
         except Exception:
             return 0

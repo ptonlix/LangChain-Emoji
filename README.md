@@ -177,7 +177,21 @@ streamlit run emoji.py
 
 ## 📖 项目介绍
 
-### 1. 目录结构
+### 1. 流程架构
+
+<p align="center">
+		<img height=600 src="./docs/pic/flowstruct.png"><br>
+		<b face="雅黑">LangChain-Emoji流程架构图</b>
+<p>
+
+核心流程：
+
+1. 项目数据初始化，将表情包数据集下载并同步到向量数据库和云盘等
+2. 前端传入 Prompt 通过 Retriever 召回表情包信息(文件名、文件描述)列表（默认 4 个）
+3. 通过大语言模型，从表情包列表中筛选出最符合输入 Prompt 的表情包
+4. 通过表情包的文件名去数据中心获取图片数据，返回前端呈现
+
+### 2. 目录结构
 
 ```
 ├── docs  # 文档
@@ -198,11 +212,12 @@ streamlit run emoji.py
 ├── log # 日志目录
 ```
 
-### 2. 功能介绍
+### 3. 功能介绍
 
-- 支持 openai 和 zhipuai 两种大模型
-- 支持腾讯云向量数据库
+- 支持 `openai` `zhipuai` `deepseek` 大模型
+- 支持本地向量数据库`chroma`和`腾讯云向量数据库`
 - 支持 配置文件动态加载
+- 支持 Web Demo 演示
 
 ## 🚩 Roadmap
 

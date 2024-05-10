@@ -224,11 +224,13 @@ class EmojiService:
             logger.info(result)
             emojiinfo = EmojiInfo(**result)
 
+            embed_tokens = self.vector_service.embedcom.total_tokens
             tokeninfo = TokenInfo(
                 model=body.llm,
-                total_tokens=cb.total_tokens,
+                total_tokens=cb.total_tokens + int(embed_tokens / 10),
                 prompt_tokens=cb.prompt_tokens,
                 completion_tokens=cb.completion_tokens,
+                embedding_tokens=int(embed_tokens / 10),
                 successful_requests=cb.successful_requests,
                 total_cost=cb.total_cost,
             )

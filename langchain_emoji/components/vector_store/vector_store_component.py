@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 class VectorStoreComponent:
     @inject
     def __init__(self, embed: EmbeddingComponent, settings: Settings) -> None:
+        self.embedcom = embed
         match settings.vectorstore.database:
             case "tcvectordb":
                 tcvectorconf = settings.vectorstore.tcvectordb
