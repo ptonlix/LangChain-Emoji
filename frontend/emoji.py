@@ -172,7 +172,7 @@ with st.container():
         select_llm = st.radio(
             "Please select a LLM",
             ["ChatGPT", "ZhipuAI", "DeepSeek"],
-            captions=["OpenAI", "智谱清言", "深度求索(测试中)"],
+            captions=["OpenAI", "智谱清言", "深度求索"],
         )
         llm_mapping = {
             "ChatGPT": "openai",
