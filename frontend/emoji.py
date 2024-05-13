@@ -138,7 +138,7 @@ def fetch_emoji(prompt: str, llm: str, progress_bar):
         loop.close()
 
 
-def area_image(area_placeholder, image):
+def area_image(area_placeholder, image, filename):
     col1, col2, col3 = area_placeholder.columns([1, 3, 1])
     with col1:
         st.write(" ")
@@ -146,7 +146,7 @@ def area_image(area_placeholder, image):
     with col2:
         st.image(
             image=image,
-            caption="帝阅DeepRead",
+            caption=filename,
             use_column_width=True,
         )
     with col3:
@@ -165,7 +165,7 @@ with st.container():
         image_placeholder = st.empty()
         area_placeholder = st.empty()
         content_placeholder = st.empty()
-        area_image(area_placeholder, image_path)
+        area_image(area_placeholder, image_path, "帝阅DeepRead")
 
     with st.form("emoji_form"):
         st.write("Emoji Input")
@@ -191,5 +191,5 @@ with st.container():
             base64_str = response["emojidetail"]["base64"]
             filename = response["emojiinfo"]["filename"]
             content = response["emojiinfo"]["content"]
-            area_image(area_placeholder, decodebase64(base64_str))
+            area_image(area_placeholder, decodebase64(base64_str), filename)
             content_placeholder.write(content)

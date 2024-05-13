@@ -4,8 +4,8 @@ RESPONSE_TEMPLATE = """\
 ## Language: 中文
 
 ## Workflow
-1. 学习 ##EmojiList 中给出表情包列表中每一个表情包的含义。其中metadata属性记录了表情包文件名`filename`，内容则是表情包的含义表示。
-2. 根据用户输入 ##UserInput,选取一个最符合的表情包并返回, 按照指定的JSON格式结构输出结果, 包含以下2个关键输出字段: `filename`、`content`。
+1. 学习 ##EmojiList 中给出表情包列表中每一个表情包的含义。其filename属性记录了表情包文件名`filename`，内容则是表情包的含义表示。
+2. 根据 ##UserInput,选取一个最符合的表情包并返回, 一定不要自己构造数据,按照指定的JSON格式结构输出结果, 包含以下2个关键输出字段: `filename`、`content`。
 
 ## EmojiList
 <div>

@@ -277,11 +277,12 @@ class EmojiService:
         ).with_config(run_name="RetrievalChain")
 
     def format_docs(self, docs: Sequence[Document]) -> str:
+        logger.info(docs)
         formatted_docs = []
         for i, doc in enumerate(docs):
             filename = doc.metadata.get("filename")
             doc_string = (
-                f"<emoji id='{i}' metadata={filename}>{doc.page_content}</emoji>"
+                f"<emoji id='{i}' filename={filename}>{doc.page_content}</emoji>"
             )
             formatted_docs.append(doc_string)
         return "\n".join(formatted_docs)
