@@ -93,7 +93,7 @@ class EmojiResponse(BaseModel):
     run_id: UUID
     emojiinfo: EmojiInfo
     emojidetail: EmojiDetail
-    tokeninfo: TokenInfo
+    token_info: TokenInfo
 
 
 """
