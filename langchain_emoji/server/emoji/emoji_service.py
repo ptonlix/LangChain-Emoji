@@ -239,7 +239,7 @@ class EmojiService:
                 run_id=read_runid.get_runid(),
                 emojiinfo=emojiinfo,
                 emojidetail=self.get_file_desc(emojiinfo),
-                tokeninfo=tokeninfo,
+                token_info=tokeninfo,
             )
             return resobj
 
