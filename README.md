@@ -22,6 +22,15 @@
 > https://github.com/LLM-Red-Team/emo-visual-data  
 > 感谢开源 一起玩转大模型 🎉🌟🌟
 
+💡💡💡 **更新：我们支持微信客户端体验啦～**
+
+#### 扫描以下二维码，添加微信，开启斗图模式
+
+<p a>
+		<img height=150 src="./docs/pic/wx.png"><br><br>
+		<img height=300 src="./docs/pic/wxemoji.png"><br>	
+<p>
+
 ## 🚀 Quick Install
 
 ### 1.部署 Python 环境
@@ -175,6 +184,10 @@ streamlit run emoji.py
 
 [![IMAGE ALT TEXT](./docs/pic/example_video.gif)](./docs/pic/example_video.gif)
 
+### 微信客户端
+
+我们支持微信客户端体验啦～
+
 ## 📖 项目介绍
 
 ### 1. 流程架构
@@ -228,7 +241,7 @@ streamlit run emoji.py
 - [ ] 支持更多模型
   - [ ] 在线大模型: 深度求索 ⏳ 测试中
   - [ ] 本地大模型
-- [ ] 接入微信客户端，开启斗图模式
+- [x] 接入微信客户端，开启斗图模式
 
 ## 🌏 项目交流讨论
 
